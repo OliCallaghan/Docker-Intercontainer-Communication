@@ -4,7 +4,7 @@
   "description": "",
   "main": "slave.js",
   "scripts": {
-    "test": "node slave.js"
+    "start": "node slave.js"
   },
   "author": "Oli Callaghan",
   "license": "MIT",

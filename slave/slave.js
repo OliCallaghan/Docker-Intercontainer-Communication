@@ -16,3 +16,8 @@ ipc.connectToNet('namespace', 'master', 8000, function () {
 		console.log(data.n1, data.operation, data.n2, '=', ans)
 	})
 })
+
+process.on('SIGINT', () => {
+	// let docker exit gracefully
+  process.exit(0)
+})
