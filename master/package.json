@@ -1,0 +1,14 @@
+{
+  "name": "icc_master",
+  "version": "0.0.1",
+  "description": "",
+  "main": "master.js",
+  "scripts": {
+    "test": "node master.js"
+  },
+  "author": "Oli Callaghan",
+  "license": "MIT",
+  "dependencies": {
+    "node-ipc": "^9.0.1"
+  }
+}
