@@ -1,0 +1,17 @@
+master:
+  build: .
+  dockerfile: Dockerfile.master
+  volumes:
+    - ./master:/usr/master
+  expose:
+    - 8000
+
+slave:
+  build: .
+  dockerfile: Dockerfile.slave
+  volumes:
+    - ./slave:/usr/slave
+  links:
+    - master:master
+  expose:
+    - 8000

@@ -1,0 +1,5 @@
+FROM node
+WORKDIR /usr/master
+ADD ./master .
+EXPOSE 8000
+CMD ["node", "master.js"]

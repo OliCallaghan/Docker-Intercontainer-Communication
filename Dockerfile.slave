@@ -1,0 +1,5 @@
+FROM node
+WORKDIR /usr/slave
+ADD ./slave .
+EXPOSE 8000
+CMD ["node", "slave.js"]
