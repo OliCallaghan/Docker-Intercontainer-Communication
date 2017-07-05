@@ -1,5 +1,10 @@
-FROM node
+# use alpine linux, it's much smaller (22MB vs 256MB)
+FROM node:8-alpine
+
 WORKDIR /usr/slave
-ADD ./slave .
-EXPOSE 8000
+
+COPY ./slave/package.json .
+RUN npm i
+COPY ./slave /usr/slave
+
 CMD ["node", "slave.js"]

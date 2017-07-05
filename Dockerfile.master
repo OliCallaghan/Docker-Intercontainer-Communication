@@ -1,5 +1,10 @@
-FROM node
+# use alpine linux, it's much smaller (22MB vs 256MB)
+FROM node:8-alpine
+
 WORKDIR /usr/master
-ADD ./master .
-EXPOSE 8000
+
+COPY ./master/package.json .
+RUN npm i
+COPY ./master /usr/master
+
 CMD ["node", "master.js"]

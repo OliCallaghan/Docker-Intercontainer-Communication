@@ -1,17 +1,20 @@
-master:
-  build: .
-  dockerfile: Dockerfile.master
-  volumes:
-    - ./master:/usr/master
-  expose:
-    - 8000
+version: '3'
 
-slave:
-  build: .
-  dockerfile: Dockerfile.slave
-  volumes:
-    - ./slave:/usr/slave
-  links:
-    - master:master
-  expose:
-    - 8000
+services:
+  master:
+    build:
+      context: .
+      dockerfile: Dockerfile.master
+    deploy:
+      mode: global # one per swarm
+    environment:
+      NODE_ENV: production # deploy in prod settings
+
+  slave:
+    build:
+      context: .
+      dockerfile: Dockerfile.slave
+    deploy:
+      replicas: 6
+    environment:
+      NODE_ENV: production
